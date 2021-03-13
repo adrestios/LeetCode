@@ -7,19 +7,24 @@
  */
 /**
  * @param {ListNode} head
- * @param {number} n
  * @return {ListNode}
  */
-var removeNthFromEnd = function(head, n) {
-  let dhead = new ListNode(0, head);
-  let p = q = dhead;
-  let i = n + 1;
-  while(i--) q = q.next;
+var deleteDuplicates = function(head) {
+  if(!head) return head;
+  let p = head;
+  let q = head.next;
   while(q) {
+    if (p.val !== q.val) {
       p = p.next;
       q = q.next;
+    } else {
+      while(q && q.val === p.val) {
+        q = q.next;
+      }
+      p.next = q;
+      p = p.next;
+      q && (q = q.next);
+    }
   }
-  p.next = p.next.next
-
-  return dhead.next;
+  return head;
 };
