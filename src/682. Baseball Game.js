@@ -17,7 +17,6 @@ var calPoints = function(ops) {
               break;
           default: 
               res.push(Number(ops[i]));
-      }s.push(Number(ops[i]));
       }
   }
   console.log(res)
