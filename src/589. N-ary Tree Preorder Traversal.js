@@ -10,6 +10,13 @@
  * @param {Node} root
  * @return {number[]}
  */
-var preorder = function(root) {
-    
+var preorder = function(root, array = []) {
+  if (root === null) {
+    return array;
+  }
+  array.push(root.val);
+  for(let node of root.children) {
+    preorder(node, array);
+  }
+  return array;
 };
